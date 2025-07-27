@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<robot name="minimal_controlled_part">
+    <link name="link"/>
+    <link name="link_0"/>
+    
+    <joint name="link_JOINT_3" type="revolute">
+        <parent link="link"/>
+        <child link="link_0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-1.57" upper="1.57" effort="10" velocity="1.0"/>
+    </joint>
+
+    <link name="link_0_clone"/>
+    <joint name="link_JOINT_4" type="revolute">
+        <parent link="link"/>
+        <child link="link_0_clone"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-1.57" upper="1.57" effort="10" velocity="1.0"/>
+    </joint>
+
+    <link name="link_1"/>
+    <joint name="link_JOINT_2" type="revolute">
+        <parent link="link"/>
+        <child link="link_1"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit effort="20" velocity="10.0"/>
+    </joint>
+
+
+    <ros2_control name="GazeboSystem" type="system">
+        <hardware>
+            <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        </hardware>
+
+        <joint name="link_JOINT_3">
+            <command_interface name="position"/>
+            <state_interface name="position"/>
+        </joint>
+
+        <joint name="link_JOINT_4">
+            <command_interface name="position"/>
+            <state_interface name="position"/>
+        </joint>
+
+        <joint name="link_JOINT_2">
+            <command_interface name="position"/>
+            <state_interface name="position"/>
+        </joint>
+    </ros2_control>
+
+
+
+
+
+</robot>

@@ -1,0 +1,30 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100
+    use_sim_time: true
+
+    steering_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    sphere_controller:
+      type: velocity_controllers/JointGroupVelocityController
+    
+
+steering_controller:
+  ros__parameters:
+    joints:
+      - left_body_steer
+      - right_body_steer
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+
+sphere_controller:
+  ros__parameters:
+    joints:
+      - body_sphere
+    command_interfaces:
+      - velocity
+    state_interfaces:
+      - velocity
