@@ -2,6 +2,7 @@
 A follower robotcar that is built from scratch, including the follower algorithm, URDF, and controller set up. It is simulated in Gazebo, and using ROS2 as the controller.
 
 Steps to run it:
+- Be in the ros2_ws directory
 - Convert Xacro to URDF
 - Luanch follower gazebo.launch.py (this will start Gazebo, and spawn the controllers)
 - Spawn the car with the command: ros2 run gazebo_ros spawn_entity.py   -file robot_car.urdf   -entity robot_car   -x 0 -y 0 -z 0.1
